@@ -3,25 +3,37 @@
 #include <cmath>
 using namespace std;
 
+/**
+ * 题目描述：
+ * 切题：n>=2
+*/
 class Solution
 {
 public:
+    /**
+     * 解法1：暴力解法，计算次数为c(n,2);
+     * 时间复杂度为O(n2)
+     * 空间复杂度为O(1)
+    */
     int maxArea(vector<int> &height)
     {
         int result = 0;
-        int heightSize = int(height.size());
+        int heightSize = height.size();
         for (int i = 0; i < heightSize; i++)
         {
             for (int j = i + 1; j < heightSize; j++)
             {
-                int min = height[i] < height[j] ? height[i] : height[j];
-                int temp = (j - i) * min;
-                if (temp > result)
-                    result = temp;
+                int min = fmin(height[i], height[j]);
+                result = fmax(result, min * (j - i));
             }
         }
         return result;
     }
+    /**
+     * 解法2：双指针法: 起点指针a(0)与末尾指针a(n-1),比较出最小的数据H，二层遍历小于等于H的，指针向内收缩 ,结束条件，两个指针相遇
+     * 时间复杂度为O(n)
+     * 空间复杂度为O(1)
+    */
     int maxArea1(vector<int> &height)
     {
         int result = 0;
@@ -29,8 +41,8 @@ public:
         int i = 0, j = size - 1;
         while (i < j)
         {
-            int minHeight = min(height[i], height[j]);
-            result = max(result, (j - i) * minHeight);
+            int minHeight = fmin(height[i], height[j]);
+            result = fmax(result, (j - i) * minHeight);
             while (height[i] <= minHeight && i < j)
                 i++;
             while (height[j] <= minHeight && i < j)
