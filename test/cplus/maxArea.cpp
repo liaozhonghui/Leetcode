@@ -29,8 +29,8 @@ public:
         int i = 0, j = size - 1;
         while (i < j)
         {
-            int minHeight = min(height[i], height[j]);
-            result = max(result, (j - i) * minHeight);
+            int minHeight = fmin(height[i], height[j]);
+            result = fmax(result, (j - i) * minHeight);
             while (height[i] <= minHeight && i < j)
                 i++;
             while (height[j] <= minHeight && i < j)
@@ -46,11 +46,12 @@ int main()
 
     vector<int> height;
     height.push_back(1);
+    height.push_back(7);
+    height.push_back(4);
+    height.push_back(3);
+    height.push_back(2);
     height.push_back(1);
-    height.push_back(1);
-    height.push_back(1);
-    height.push_back(1);
-    height.push_back(1);
+    height.push_back(3);
     Solution solutionInst;
     int maxAreaRes = solutionInst.maxArea1(height);
     cout << "计算结果：" << maxAreaRes << endl;
