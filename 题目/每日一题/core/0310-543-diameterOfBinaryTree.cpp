@@ -1,15 +1,25 @@
+#include <iostream>
+using namespace std;
+#include <math.h>
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 class Solution
 {
 public:
     int ans = 0;
-    int diameterOfBinaryTree(TreeNode *root)
+    int diameterOfBinaryTree(TreeNode* root)
     {
         if (root == NULL)
             return 0;
         depth(root);
         return ans;
     }
-    int depth(TreeNode *rt)
+    int depth(TreeNode* rt)
     {
         if (rt == NULL)
             return 0;

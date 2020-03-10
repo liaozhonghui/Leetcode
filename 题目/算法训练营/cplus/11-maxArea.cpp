@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <math.h>
 using namespace std;
 
 /**
@@ -23,8 +23,8 @@ public:
         {
             for (int j = i + 1; j < heightSize; j++)
             {
-                int min = fmin(height[i], height[j]);
-                result = fmax(result, min * (j - i));
+                int minHeight = min(height[i], height[j]);
+                result = max(result, minHeight * (j - i));
             }
         }
         return result;
