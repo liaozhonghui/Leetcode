@@ -10,8 +10,10 @@ function maxArea(heights) {
     while (i < j) {
         let hmin = Math.min(heights[i], heights[j]);
         result = Math.max(result, hmin * (j - i));
-        while (heights[i] <= hmin && i < j) i++;
-        while (heights[j] <= hmin && i < j) j--;
+        while (heights[i] <= hmin && i < j)
+            i++;
+        while (heights[j] <= hmin && i < j)
+            j--;
     }
     return result;
 }

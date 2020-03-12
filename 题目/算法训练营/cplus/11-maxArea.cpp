@@ -50,6 +50,19 @@ public:
         }
         return result;
     };
+    int maxArea2(vector<int> &height)
+    {
+        int l = 0;
+        int h = height.size() - 1;
+        int max = 0;
+
+        while (l < h)
+        {
+            int candidate = (h - l) * (height[l] < height[h] ? height[l++] : height[h--]);
+            max = max > candidate ? max : candidate;
+        }
+        return max;
+    }
 };
 
 int main()
