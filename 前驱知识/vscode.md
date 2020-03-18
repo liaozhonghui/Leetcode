@@ -39,6 +39,19 @@ or Press Shift+Alt+= or Shift+Alt+-.
 10) Make effective use of Command Pallet
 
 
+BenchConfig各个服务版本
+1. benchconfig-db-server-V.2.16
+2. HiIOManagerLib-V1.0.1
+3. benchconfig-view-V1.0.6
+4. benchconfig-import-binding-V1.0.7
+5. benchconfig-export-router-V1.0.11
+6. benchconfig-import-BP-V1.0.33
+7. benchconfig-icdtree-V1.0.12
 
-前端还剩下两个问题没有改完
-1.
+看下
+1. 关于版本号（目前显示的是V1.0.1）
+2. 导入BP，一段时间后进度条消失，滚动鼠标会出出现界面异常现象，并报错文件上传失败
+
+{
+    "importUuid": xxx
+}
