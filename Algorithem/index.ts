@@ -67,8 +67,8 @@ function bfs(root: TreeNode): void {
             let next_node: TreeNode = next_nodes[i];
             queue.push(next_node);
         }
-        
-        
+
+
     }
 
 }
