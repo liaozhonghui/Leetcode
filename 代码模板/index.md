@@ -73,18 +73,23 @@ function dfs(tree) {
         return ;
     }
     let visited = new Set();
-    let p = tree.root;
-    let stack = [];
-    while(p || stack.length) {
-        while(p) {
-            // process logic
-            stack.push(root);
-            nodes = gene_related_nodes(root);
-            for (let node of nodes) {
-                if (!node.visited(node)) p = node, break;
+    let stack = [tree.roo];
+    while(stack.length) {
+        let node = stack[stack.length - 1];
+
+        let nodes = gene_related_nodes(node);
+        let i = 0;
+        for (;i < nodes.length; i++) {
+            let node = nodes[i];
+            if (!visited(node)) {
+                // process logic
+                console.log(node.value);
+                stack.push(node);
+                visited.add(node);
+                break;
             }
         }
-        root = stack.pop();
+        if (i === nodes.length) stack.pop();
     }
 }
 
